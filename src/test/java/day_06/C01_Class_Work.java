@@ -15,6 +15,25 @@ import java.time.Duration;
 import java.util.List;
 
 public class C01_Class_Work {
+
+    //Not: Dropdown'un HTML yapisndan dolayi 'Select' tag'i vardir ayni zamanda dropdown automate etmek icin
+    // select tag'ini kullanmaliyiz. yani direkt 'Webelemnti' locate etmeye yetmeyecek. HTML yapisisndan dolayi.
+    //Select clasini dropdown'u handle etmek icin kullaniriz bu da selenium'un icicnde var.
+    //Select Class'in icinde de option tag'leri var iste bunlar bize senec verir biz de bu secenekleri dropdown sayesinde handle ederiz
+
+    /*   ------Dropdown'dan Bir Elemt Secmek Icin '3' Adim Vardir: -------
+    --*1. Adim:   Dropdown'u locate etmeliyiz
+                    WebElement ddm = driver.findElement(By.id("value of id"))
+
+    --*2. Adim:   Dropdown 'Select Class'indan olusturuldugu icin selenium direkt secenekleri secemez.
+                    * Select options = new Select(ddm);
+                    *
+
+    --*3. Adim: Biz yukarida bir obje olustururz ve bu olusturdugumuz obje sayesinde 'Select Class'indaki method secenklerini gorecegiz .
+            * Bu gordugumuz select methodlariyla istedigimiz option'u secim handle edebilecegiz
+
+    */
+
     WebDriver driver;
     //Eger test sinifinda birden fazla method olusturulmussa @Befor kullanilir. tek @Test varsa ikisi de olur.
 
@@ -25,12 +44,13 @@ public class C01_Class_Work {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        // Given kullanici https://testcenter.techproeducation.com/index.php?page=dropdown sayfasindayken dogum yilini,ayini ve gununu su sekilde secer : 2000 jonuary 10
+        //her test'ten once bu adrese gidecegimiz icin befor'un icine aldik
         driver.get("https://testcenter.techproeducation.com/index.php?page=dropdown");
     }
     @Test
     public void selectByIndexTest (){
 
+        // Given kullanici https://testcenter.techproeducation.com/index.php?page=dropdown sayfasindayken dogum yilini,ayini ve gununu su sekilde secer : 2000 jonuary 10
 
         //Yil secimini yapacagiz
         //1.adim
