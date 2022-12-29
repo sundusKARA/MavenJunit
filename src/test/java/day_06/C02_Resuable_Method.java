@@ -45,6 +45,9 @@ public class C02_Resuable_Method {
     public void selectFromDropdown() throws InterruptedException {
         Thread.sleep(3000);
         selectFromDropdown(driver.findElement(By.xpath("//select[@id='year']")),"2005");
+            selectFromDropdown(driver.findElement(By.id("month")),"November");
+            selectFromDropdown(driver.findElement(By.id("day")),"10");
+            selectFromDropdown(driver.findElement(By.id("state")),"Texas");
         }
 
 
