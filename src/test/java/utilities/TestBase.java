@@ -1,7 +1,7 @@
 package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,8 +11,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public abstract class TestBase {
@@ -164,6 +168,27 @@ public abstract class TestBase {
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
+    }
+
+    public static void tumSayfaImg () throws IOException {
+
+        File resim = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String currentDate = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String path = System.getProperty("user.dir") + "\\test-output/tumSayfaImg\\"+currentDate+"image.png";
+        File hedef = new File(path);
+        FileUtils.copyFile(resim , hedef);
+}
+    //    SCREENSHOT
+//    @params: WebElement
+//    takes screenshot
+    public void takeScreenshotOfElement(WebElement element) throws IOException {
+//        1. take screenshot
+        File image = element.getScreenshotAs(OutputType.FILE);
+//        2. save screenshot
+//        path
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
+        FileUtils.copyFile(image,new File(path));
     }
 
 
