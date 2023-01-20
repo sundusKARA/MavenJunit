@@ -1,0 +1,5 @@
+2023-01-20 23:22:11,284 DEBUG d.C01_Log4J [main] Debug logger
+2023-01-20 23:22:11,291 INFO d.C01_Log4J [main] Info logger
+2023-01-20 23:22:11,292 ERROR d.C01_Log4J [main] Error logger
+2023-01-20 23:22:11,292 FATAL d.C01_Log4J [main] Fatal logger
+2023-01-20 23:22:11,292 WARN d.C01_Log4J [main] Warn Log!

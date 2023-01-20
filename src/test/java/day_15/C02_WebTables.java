@@ -1,5 +1,8 @@
 package day_15;
 
+import day_18.C01_Log4J;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,6 +11,8 @@ import utilities.TestBase;
 import java.util.List;
 
 public class C02_WebTables extends TestBase {
+
+    private static Logger logger = LogManager.getLogger(C01_Log4J.class.getName());
     @Test
     public void test01() {
 
@@ -17,7 +22,8 @@ public class C02_WebTables extends TestBase {
 
 //    Task 1 : Table1’i print edin
         String table1 = driver.findElement(By.xpath("//table[@id='table1']")).getText();
-        System.out.println("TABLE 1 VERILERI");
+        System.out.println("TABLE 1 VERILERI"); //sout da ciktisi bu sekilde : TABLE 1 VERILERI
+        logger.info("TABLE 1 VERILERI");   // sout ile ayni isi yapar arti olarak dosyaya yuklenir. ciktisi detayli olur :// 23:45:19.172 [main] INFO  day_18.C01_Log4J - TABLE 1 VERILERI
         System.out.println(table1);
 
        // her bir satiri bir butun olarak gurup gurup yazdirdi

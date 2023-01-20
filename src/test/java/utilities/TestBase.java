@@ -223,6 +223,25 @@ public abstract class TestBase {
         js.executeScript("arguments[0].setAttribute('value' , '"+metin+"');",element);
     }
 
+    // input elementindeki degeri al
+    //    input elementindeki degerleri(value) al
+//   Belirli bir WebElement'in id değerini String olarak alır ve value attribute değerini String olarak döndürür
+//    return
+//    document HTML'E GIT
+//    .getElementById('" + idOfElement + "') ID'si VERILEN ELEMENTI BUL
+//    .value")
+//    .toString();
+    public void getValueBy (String idOfEleemnt){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String text = js.executeScript("return document.getElementById('"+idOfEleemnt+"').value").toString();
+        System.out.println("Kutudaki deger : " + text);
+//        NOT: document.querySelector("p").value; -> TAG KULLANILABILIR
+//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
+//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
+    }
+
+
+
 
 
 
