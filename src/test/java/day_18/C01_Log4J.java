@@ -10,10 +10,16 @@ public class C01_Log4J  {
     @Test
     public void test01() {
 
-//3. Logger object olustur:
-//    private static Logger logger = LogManager.getLogger(Demo1.class.getName());
+        // --- Adimlar :
 
-//4. Logger fonksiyonuyla istenilen fonksiyonu kullan
+    //1. Dependecy'leri pomxml yukle
+    //2. Class olustur
+    //3. Logger object olustur
+    //4. Logger fonksiyonuyla istenilen fonksiyonu kullan
+
+        //  dependcy > class olustur > obje olustur > Logger fonksiyonlarindan istenilen fonksiyonu kullan
+
+        //    private static Logger logger = LogManager.getLogger(Demo1.class.getName());
         logger.debug("Debug logger");  //codun neden kaldigini anlatan log
         logger.info("Info logger");
         logger.error("Error logger");
